@@ -12,9 +12,14 @@ if (!endpoint || !registrationToken) throw new Error('APPSERVER_AGENT_ENDPOINT a
 
 const ws = new WebSocket(endpoint, { headers: { Authorization: `Bearer ${registrationToken}` } })
 const handles = new Map<string, string>()
+const agentId = process.env.APPSERVER_AGENT_ID || randomUUID()
 
 ws.on('open', () => {
-  ws.send(encodeFrame({ type: 'hello', protocolVersion: 1, agentId: process.env.APPSERVER_AGENT_ID || randomUUID(), publicKey: '', nonce: randomUUID() }))
+  ws.send(encodeFrame({ type: 'hello', protocolVersion: 1, agentId, publicKey: '', nonce: randomUUID() }))
+  setInterval(() => {
+    if (ws.readyState === WebSocket.OPEN)
+      ws.send(encodeFrame({ type: 'heartbeat', agentId, timestamp: Date.now(), capabilities: { runtime: 'rootless-docker', mcp: true } }))
+  }, 30_000).unref()
 })
 ws.on('message', async (raw) => {
   const frame = decodeFrame(String(raw)) as AgentRuntimeWorkspaceRequest | AgentRuntimeToolRequest
