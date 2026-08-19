@@ -1,0 +1,4 @@
+packages:
+  - agent-protocol
+  - remote-agent
+  - remote-mcp-bridge
