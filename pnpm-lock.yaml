@@ -16,7 +16,7 @@ importers:
 
   remote-agent:
     dependencies:
-      '@appserver/agent-protocol':
+      '@quyan/agent-protocol':
         specifier: workspace:*
         version: link:../agent-protocol
       ws:
@@ -35,7 +35,7 @@ importers:
 
   remote-mcp-bridge:
     dependencies:
-      '@appserver/agent-protocol':
+      '@quyan/agent-protocol':
         specifier: workspace:*
         version: link:../agent-protocol
       '@modelcontextprotocol/sdk':

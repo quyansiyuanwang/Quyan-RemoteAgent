@@ -1,5 +1,5 @@
 {
-  "name": "@appserver/remote-agent-suite",
+  "name": "@quyan/remote-agent-suite",
   "private": true,
   "packageManager": "pnpm@10.33.0",
   "scripts": {

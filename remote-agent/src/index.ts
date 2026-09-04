@@ -2,8 +2,8 @@ import WebSocket from 'ws'
 import { randomUUID } from 'node:crypto'
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
-import { encodeFrame, decodeFrame } from '@appserver/agent-protocol'
-import type { AgentRuntimeWorkspaceRequest, AgentRuntimeToolRequest } from '@appserver/agent-protocol'
+import { encodeFrame, decodeFrame } from '@quyan/agent-protocol'
+import type { AgentRuntimeWorkspaceRequest, AgentRuntimeToolRequest } from '@quyan/agent-protocol'
 
 const execFileAsync = promisify(execFile)
 const endpoint = process.env.APPSERVER_AGENT_ENDPOINT

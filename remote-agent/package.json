@@ -1,9 +1,9 @@
 {
-  "name": "@appserver/remote-agent",
+  "name": "@quyan/remote-agent",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": { "start": "node --experimental-strip-types src/index.ts", "type-check": "pnpm exec tsc --noEmit" },
-  "dependencies": { "@appserver/agent-protocol": "workspace:*", "ws": "^8.18.3" },
+  "dependencies": { "@quyan/agent-protocol": "workspace:*", "ws": "^8.18.3" },
   "devDependencies": { "@types/node": "^22.18.11", "@types/ws": "^8.18.1", "typescript": "^5.9.3" }
 }
